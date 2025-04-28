@@ -1,0 +1,72 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Sync Configuration Schema",
+    "description": "Schema for validating the sync.yml configuration file.",
+    "type": "object",
+    "properties": {
+        "default_overwrite_name": {
+            "type": "string",
+            "description": "The default overwrite name to be used if no specific overwrite is provided."
+        },
+        "templates": {
+            "type": "array",
+            "description": "A list of template configurations.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the template."
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A brief description of the template."
+                    },
+                    "overwrites": {
+                        "type": "object",
+                        "description": "Defines overwrite rules for the template. Each key corresponds to a subdirectory in the 'overwrites' directory.",
+                        "patternProperties": {
+                            "^[a-zA-Z0-9_-]+$": {
+                                "oneOf": [
+                                    {
+                                        "type": "boolean",
+                                        "description": "If true, includes the entire subdirectory. If false, excludes it entirely."
+                                    },
+                                    {
+                                        "type": "object",
+                                        "description": "An object defining specific inclusion/exclusion rules for the subdirectory.",
+                                        "properties": {
+                                            "exclude": {
+                                                "type": "array",
+                                                "description": "A list of file paths to exclude from the subdirectory.",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "glob": {
+                                                "type": "string",
+                                                "description": "A glob pattern to specify files to include from the subdirectory."
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    }
+                                ]
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                },
+                "required": [
+                    "name",
+                    "description"
+                ],
+                "additionalProperties": false
+            }
+        }
+    },
+    "required": [
+        "default_overwrite_name",
+        "templates"
+    ],
+    "additionalProperties": false
+}

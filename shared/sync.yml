@@ -1,12 +1,24 @@
+
 ## Currently a draft of what the sync.yml file should look like
+# yaml-language-server: $schema=./sync.schema.json
 default_overwrite_name: "default"
 
 templates:
-  basic:
-    - name: "basic"
-      description: "Minimalistic basic LaTeX-Repository with a single document"
-      overwrites:
-        default:
-          exclude:
-            - .github/workflows/build.yml
-        pdfa-check: true
+  - name: "basic"
+    description: "Minimalistic basic LaTeX-Repository with a single document"
+  - name: "basic_tuda"
+    description: "Minimalistic basic LaTeX-Repository with a single document - TU Darmstadt version"
+    overwrites:
+      default:
+        exclude:
+          - .github/workflows/build.yml
+      pdfa-check: true
+  - name: "basic_nooverwrite"
+    description: "Test with no overwrite, not even default"
+    overwrites:
+      default: false
+  - name: "basic_nooverwrite"
+    description: "Test with no overwrite, not even default"
+    overwrites:
+      default:
+        glob: "**/*.yml"
