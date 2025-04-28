@@ -1,0 +1,12 @@
+## Currently a draft of what the sync.yml file should look like
+default_overwrite_name: "default"
+
+templates:
+  basic:
+    - name: "basic"
+      description: "Minimalistic basic LaTeX-Repository with a single document"
+      overwrites:
+        default:
+          exclude:
+            - .github/workflows/build.yml
+        pdfa-check: true
