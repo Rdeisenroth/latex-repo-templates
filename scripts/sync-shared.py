@@ -139,10 +139,11 @@ def process_templates(config, overwrite_dir, templates_dir, specific_templates=N
 
         overwrites = template.get('overwrites', {})
         dlog(f"Overwrites for {template_name}: {overwrites}")
+        overwrite_items = overwrites.items()
         # if overwrites does not explicitly contain "default", add it
         if 'default' not in overwrites:
-            overwrites['default'] = True
-        for overwrite_name, overwrite_config in overwrites.items():
+            overwrite_items = [('default', True)] + list(overwrite_items)
+        for overwrite_name, overwrite_config in overwrite_items:
             if isinstance(overwrite_config, bool):
                 if not overwrite_config:
                     continue

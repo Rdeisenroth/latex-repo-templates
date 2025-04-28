@@ -23,7 +23,7 @@ jobs:
     timeout-minutes: 10
     # The docker image to use for the container
     container:
-      image: registry.gitlab.com/islandoftex/images/texlive:latest # base LaTeX image
+      image: ghcr.io/tudalgo/algotex:latest # this one has the TUDA-Logo already installed, but you can use any other image and install the logo yourself
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:

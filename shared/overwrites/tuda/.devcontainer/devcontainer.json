@@ -3,7 +3,7 @@
     "build": {
         "dockerfile": "Dockerfile"
     },
-    "initializeCommand": "docker pull registry.gitlab.com/islandoftex/images/texlive:latest",
+    "initializeCommand": "docker pull ghcr.io/tudalgo/algotex:latest",
     "customizations": {
         "vscode": {
             "extensions": [

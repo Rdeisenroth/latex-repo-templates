@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/islandoftex/images/texlive:latest
+FROM ghcr.io/tudalgo/algotex:latest
 
 # install packages
 RUN apt-get update \

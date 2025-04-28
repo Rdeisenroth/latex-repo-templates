@@ -9,16 +9,20 @@ templates:
   - name: "basic_tuda"
     description: "Minimalistic basic LaTeX-Repository with a single document - TU Darmstadt version"
     overwrites:
-      default:
-        exclude:
-          - .github/workflows/build.yml
+      tuda: true
+  - name: "seminar_tuda"
+    description: "Multi-File LaTeX-Repository for seminar papers + presentation - TU Darmstadt version"
+    overwrites:
+      tuda: true
       pdfa-check: true
-  - name: "basic_nooverwrite"
-    description: "Test with no overwrite, not even default"
+  - name: "seminar_tuda_acm"
+    description: "Multi-File LaTeX-Repository for seminar papers + presentation - TU Darmstadt version with ACM template"
     overwrites:
-      default: false
-  - name: "basic_nooverwrite"
-    description: "Test with no overwrite, not even default"
+      tuda: true
+      pdfa-check: true
+      acm: true
+  - name: "thesis_tuda"
+    description: "Multi-File LaTeX-Repository for theses - TU Darmstadt version"
     overwrites:
-      default:
-        glob: "**/*.yml"
+      tuda: true
+      pdfa-check: true
