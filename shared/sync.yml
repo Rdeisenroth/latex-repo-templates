@@ -1,4 +1,3 @@
-
 ## Currently a draft of what the sync.yml file should look like
 # yaml-language-server: $schema=./sync.schema.json
 default_overwrite_name: "default"
@@ -10,19 +9,31 @@ templates:
     description: "Minimalistic basic LaTeX-Repository with a single document - TU Darmstadt version"
     overwrites:
       tuda: true
-  - name: "seminar_tuda"
-    description: "Multi-File LaTeX-Repository for seminar papers + presentation - TU Darmstadt version"
+  - name: "basic_algoexercise"
+    description: "LaTeX-Repository for creating an exercise sheet with AlgoTeX - TU Darmstadt version"
     overwrites:
       tuda: true
-      pdfa-check: true
-  - name: "seminar_tuda_acm"
-    description: "Multi-File LaTeX-Repository for seminar papers + presentation - TU Darmstadt version with ACM template"
-    overwrites:
-      tuda: true
-      pdfa-check: true
-      acm: true
+  # - name: "seminar_tuda"
+  #   description: "Multi-File LaTeX-Repository for seminar papers + presentation - TU Darmstadt version"
+  #   overwrites:
+  #     tuda: true
+  #     pdfa-check: true
+  # - name: "seminar_tuda_acm"
+  #   description: "Multi-File LaTeX-Repository for seminar papers + presentation - TU Darmstadt version with ACM template"
+  #   overwrites:
+  #     tuda: true
+  #     pdfa-check: true
+      # acm: true
+  # - name: "submission_tuda"
+  #   description: "Single-File LaTeX-Repository for exercise submissions - TU Darmstadt version"
+  #   overwrites:
+  #     tuda: true
+  #     rubos-template: true
   - name: "thesis_tuda"
     description: "Multi-File LaTeX-Repository for theses - TU Darmstadt version"
     overwrites:
+      basic:
+        exclude:
+          - "pictures/.gitignore"
       tuda: true
       pdfa-check: true

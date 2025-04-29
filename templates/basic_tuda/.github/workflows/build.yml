@@ -1,0 +1,69 @@
+# LaTeX document build workflow
+
+name: build
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push events for all branches
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # automatically cancel the workflow if it runs longer than 10 minutes
+    timeout-minutes: 10
+    # The docker image to use for the container
+    container:
+      image: ghcr.io/tudalgo/algotex:latest # this one has the TUDA-Logo already installed, but you can use any other image and install the logo yourself
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # 1. Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Set up Git repository
+        uses: actions/checkout@v4
+
+      # 2. Build the document
+      - name: "Build the document"
+        run: |
+          make -j
+          mv build/*.pdf .
+
+      # 3. Upload artifacts to GitHub
+      - name: Upload artifacts to GitHub
+        #if: ${{ !env.ACT }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: PDF
+          path: "*.pdf"
+          if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
+  # The following step deploys the PDF to Nextcloud via WebDAV. The new NextHessenbox should work perfectly fine with this. The idea is to generate one link, where others can always find the latest version of your document (e.g. your reviewers for your thesis)
+  # deploy:
+  #   if: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') && github.event_name == 'push' }}
+  #   # The type of runner that the job will run on
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   # Steps represent a sequence of tasks that will be executed as part of the job
+  #   steps:
+  #     # 1. Download the artifact
+  #     - name: Save pdf file
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: PDF
+  #         path: .
+  #     # 2. Upload Sheet to Nextcloud via WebDAV
+  #     - name: Upload Sheet to Nextcloud via WebDAV
+  #       run: |
+  #         for file in *.pdf; do
+  #           echo "Uploading $file to Nextcloud"
+  #           curl -T $file -u ${{ secrets.NC_WEBDAV_USERNAME }}:${{ secrets.NC_WEBDAV_PW }} ${{ secrets.NC_WEBDAV_URL }}/$file
+  #         done
+  #         echo "Upload complete"

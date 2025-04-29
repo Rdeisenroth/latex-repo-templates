@@ -1,0 +1,41 @@
+\documentclass{article}
+
+
+%%------------%%
+%%--Packages--%%
+%%------------%%
+\usepackage{graphicx}
+\usepackage{darkmode}
+
+%%-----------------------%%
+%%--Document Properties--%%
+%%-----------------------%%
+\graphicspath{{pictures}}
+\author{<Author1>\and <Author2>}
+\title{<Title>}
+\date{<Date>}
+
+%%----------------------------%%
+%%--Stylistic Customisations--%%
+%%----------------------------%%
+
+% optionally enable darkmode with environment variable DARK_MODE
+\ExplSyntaxOn
+\sys_get_shell:nnN { kpsewhich ~ --var-value ~ DARK_MODE } { } \l_dark_mode_env_var_tl
+\tl_trim_spaces:N \l_dark_mode_env_var_tl
+\tl_if_eq:NnT \l_dark_mode_env_var_tl {1} {\enabledarkmode{}}
+\tl_if_eq:NnT \l_dark_mode_env_var_tl {2} {\enabledarkmode{}\pagecolor{black}}
+\tl_if_eq:NnT \l_dark_mode_env_var_tl {0} {\disabledarkmode{}}
+\ExplSyntaxOff
+
+%%-------------------------%%
+%%--Start Of The Document--%%
+%%-------------------------%%
+\begin{document}
+    %%-------------%%
+    %%--Titlepage--%%
+    %%-------------%%
+    \maketitle{}
+
+    Hello, World!
+\end{document}

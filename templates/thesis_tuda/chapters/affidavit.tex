@@ -1,0 +1,19 @@
+\documentclass[../thesis.tex]{subfiles}
+
+% Get Labels from the Main Document using the xr-hyper Package
+\externaldocument[ext:]{\subfix{thesis}}
+\graphicspath{{\subfix{pictures}}{\subfix{pictures/tex}}}
+
+\begin{document}
+
+    \affidavit[%
+        signature-image={%
+            \IfFileExistsInGraphicsPathTF{signature.pdf}{%
+                \includegraphics[width=\width]{signature.pdf}%
+            }{%
+                \includeinvertablegraphics[width=\width]{dummy-signature.png}%
+            }%
+        },%
+        affidavit=digital,%
+    ]
+\end{document}

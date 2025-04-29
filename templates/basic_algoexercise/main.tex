@@ -1,0 +1,87 @@
+\documentclass[
+    inlineshortcut=java, % Befehl \inlinejava{<code>} Konfigurieren
+    corporatedesign, % TU-Design
+    boxarc, % Abgerundete Ecken bei den Boxen
+    fop, % FOP-Vorlage benutzen
+]{algoexercise}
+
+%%------------%%
+%%--Packages--%%
+%%------------%%
+
+% \usepackage{audutils}
+% \usepackage{fopbot}
+
+%%---------------------------%%
+%%--Dokumenteneinstellungen--%%
+%%---------------------------%%
+
+\duedate{2025-XX-XX}
+% \author{<Author1>\and <Author2>\and <Author3>} % Übungsblattbetreuer
+\subtitle{Prof. Schlau Meier}
+\dozent{Prof. Schlau Meier} % chktex 12
+\fachbereich{Informatik}
+\semester{Wintersemester 2025/26} % z.B. SoSe 2022 oder WiSe 2022/2023
+\sheetnumber{12} % Einstellige Nummern werden mit 0 aufgefüllt
+\slides{08} % Die Relevanten Foliensätze
+\topics{Streams} % Für das Übungsblatt relevante Themengebiete
+\title[<Kreativer Titel>]{Übungsblatt \getSheetnumber{}}
+\version{1.0-SNAPSHOT}
+\graphicspath{{./pictures/}}
+
+%%----------------------------%%
+%%--Stilistische Anpassungen--%%
+%%----------------------------%%
+
+\ConfigureHeadline{
+    headline={algo-min}
+}
+
+%%-------------------------%%
+%%--Beginn des Dokumentes--%%
+%%-------------------------%%
+
+\begin{document}%
+
+    %%-----------%%
+    %%--Titelei--%%
+    %%-----------%%
+
+    \maketitle{}
+
+    %%-------------%%
+    %%--H-Übungen--%%
+    %%-------------%%
+
+    \hue{Hausübung \getSheetnumber{}}{\getShorttitle{}}{\getPointsTotal{}}
+
+    %\tableofcontents
+
+    %%------------------------------%%
+    %%--Verbindliche Anforderungen--%%
+    %%------------------------------%%
+
+    \UseSnippet{exercise-introduction-fop-2425}
+
+    %%--------------%%
+    %%--Einleitung--%%
+    %%--------------%%
+
+    <Einleitungstext>
+
+    \clearpage{}
+
+    %%------------------------%%
+    %%--Beginn der Hausübung--%%
+    %%------------------------%%
+
+    % Aufgabe 1
+    \begin{task}[points=auto]{<Aufgabentitel>}\label{ex:H1}
+        \begin{subtask*}[points=1]{<Teilaufgabe>}\label{ex:H1.1}
+            <Aufgabenstellung>
+        \end{subtask*}
+        \begin{subtask*}[points=2]{<Teilaufgabe>}\label{ex:H1.2}
+            <Aufgabenstellung>
+        \end{subtask*}
+    \end{task}
+\end{document}
