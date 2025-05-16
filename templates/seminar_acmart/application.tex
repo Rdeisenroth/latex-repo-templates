@@ -1,0 +1,188 @@
+%!TEX root = application.tex
+%!TeX program = lualatex
+%!TeX encoding = UTF-8
+%!TeX spellcheck = en_US
+\RequirePackage{import}
+\PassOptionsToPackage{table, dvipsnames, svgnames}{xcolor} % pass xcolor options early so they are picked up by the tudapub class
+\PassOptionsToPackage{hidelinks}{hyperref}
+\RequirePackage[
+    minted_workaround,
+    caption_workaround,
+    boxarc,%
+    fancy_row_color,
+]{algo-common}
+\documentclass[
+    USenglish,
+    accentcolor=3b,
+]{tudaexercise}
+\subimport{common}{packages}
+\subimport{common}{macros}
+\subimport{common}{style}
+\graphicspath{{\subfix{pictures/}}{\subfix{pictures/tex}}}
+
+%%----------------------------%%
+%%--Stylistic Customisations--%%
+%%----------------------------%%
+
+\newcommand{\fat}[1]{{\Large\textbf{\textcolor{accentcolor}{\textsf{#1}}}}}
+\newcommand{\fatnc}[1]{{\large\textbf{\textsf{#1}}}}
+
+\colorlet{accentcolor}{TUDa-3\IfDarkModeTF{b}{c}}
+\setlength{\parindent}{0pt}
+\renewcommand{\labelitemi}{\textcolor{accentcolor}{\small\faAngleRight}}
+\renewcommand{\labelitemii}{\textbullet}
+\renewcommand{\labelitemiii}{\normalfont\bfseries \textendash}
+\renewcommand{\labelitemiv}{\textasteriskcentered}
+
+\newcommand{\iconpsection}[2]{%
+    \mbox{}\fat{\hbox to 0.8cm{#1}#2}%
+    \vspace{-1.2em}\par\noindent\rule{\textwidth}{0.4pt}\\[1em]
+}
+
+
+\newcommand{\applicant}[1]{%
+\rule{\textwidth}{0.4pt}\\[.4ex]%
+{\LARGE\bfseries Applicant #1}\\[-1.2ex]%
+\rule{\textwidth}{0.4pt}%
+}
+
+\newcommand{\seedpapers}{
+    \begin{defBox}
+        \begin{itemize}
+            \item \textbf{Paper 1:} <Interesting paper 1>
+            \item \textbf{Paper 2:} <Interesting paper 2>
+            \item \textbf{Paper 3:} <Interesting paper 3>
+        \end{itemize}
+    \end{defBox}
+}
+%%-------------------------%%
+%%--Start Of The Document--%%
+%%-------------------------%%
+\begin{document}
+    \sffamily%
+    % \pagestyle{empty}
+    %
+    %%---------%%
+    %%--Title--%%
+    %%---------%%
+    \textbf{\Huge Application for <TOPIC> Seminar}%
+    \vspace{2em}
+
+    %%---------------%%
+    %%--Applicant 1--%%
+    %%---------------%%
+    \applicant{1}\label{applicant1}%
+    \vspace{1em}
+
+    % -- Personal Information --%%
+    \iconpsection{\faUser}{Personal Information}
+    \textbf{\large Firstname1 Lastname1}
+    \begin{itemize}
+        \item \textbf{Current Degree:} B.Sc. Computer Science
+        \item \textbf{Degree Programs:} M.Sc. IT Security, M.Sc. Computer Science
+        \item \textbf{Email:} \href{mailto:firstname1.lastname1@stud.tu-darmstadt.de}{firstname1.lastname1@stud.tu-darmstadt.de}
+        \item \textbf{Current (Master-)Semester:} 4
+    \end{itemize}
+
+    %%-- Prior Experience --%%
+    \iconpsection{\faGraduationCap}{Prior Experience}
+    \textbf{University:}
+    \begin{itemize}[itemsep=-.5em]
+        \item <Course1> in WiSe 23/24
+        \item attending <Course2> this semester
+    \end{itemize}
+    \textbf{Personal:}
+    \begin{itemize}[itemsep=-.5em]
+        \item <Experience1> in <Field1>
+        \item <Experience2> with <Tool1>
+        \item <Experience3> with <Tool2>
+    \end{itemize}
+    \textbf{Professional:}
+    \begin{itemize}[itemsep=-.5em]
+        \item <Experience4> in <Field2> for <Company1>
+    \end{itemize}
+    %%-- Motivation --%%
+    \iconpsection{\faClipboard}{Motivation}
+    \lipsum[1]
+
+    %%-- Research Interests --%%
+    \iconpsection{\faBook}{Research Interests}
+    \textbf{Seed Papers (Same for all Group Members):}
+    \seedpapers{}
+    \clearpage{}
+    %%---------------%%
+    %%--Applicant 2--%%
+    %%---------------%%
+    \applicant{2}\label{applicant2}%
+    \vspace{1em}
+
+    % -- Personal Information --%%
+    \iconpsection{\faUser}{Personal Information}
+    \textbf{\large Firstname2 Lastname2}
+    \begin{itemize}
+        \item \textbf{Degree Programs:} B.Sc. Computer Science
+        \item \textbf{Email:} \href{mailto:firstname2.lastname2@stud.tu-darmstadt.de}{firstname2.lastname2@stud.tu-darmstadt.de}
+        \item \textbf{Current (Bachelor-)Semester:} 6
+    \end{itemize}
+
+    %%-- Prior Experience --%%
+    \iconpsection{\faGraduationCap}{Prior Experience}
+    \textbf{University:}
+    \begin{itemize}
+        \item <Course1> in WiSe 23/24
+        \item <Course2> in SoSe 24
+        \item attending <Course3> this semester
+        \item attending <Course4> this semester
+    \end{itemize}
+    \textbf{Professional:}
+    \begin{itemize}
+        \item Working Student as <Position> at <Company1>
+    \end{itemize}
+    %%-- Motivation --%%
+    \iconpsection{\faClipboard}{Motivation}
+    \lipsum[1]
+
+    %%-- Research Interests --%%
+    \iconpsection{\faBook}{Research Interests}
+    \textbf{Seed Papers (Same for all Group Members):}
+    \seedpapers{}
+    \clearpage{}
+    %%---------------%%
+    %%--Applicant 3--%%
+    %%---------------%%
+    \applicant{3}\label{applicant3}%
+    \vspace{1em}
+
+    % -- Personal Information --%%
+    \iconpsection{\faUser}{Personal Information}
+    \textbf{\large Firstname3 Lastname3}
+    \begin{itemize}
+        \item \textbf{Degree Programs:} B.Sc. Computer Science
+        \item \textbf{Email:} \href{mailto:firstname3.lastname3@stud.tu-darmstadt.de}{firstname3.lastname3@stud.tu-darmstadt.de}
+        \item \textbf{Current (Bachelor-)Semester:} 8
+    \end{itemize}
+
+    %%-- Prior Experience --%%
+    \iconpsection{\faGraduationCap}{Prior Experience}
+    \textbf{University:}
+    \begin{itemize}
+        \item attending <Course1>, <Course2> and <Course3> this semester
+    \end{itemize}
+    \textbf{Personal:}
+    \begin{itemize}
+        \item 1+ years of experience working with <Tool1>
+        \item 3+ years of experience working with <Tool2> in various projects
+    \end{itemize}
+    \textbf{Professional:}
+    \begin{itemize}
+        \item Internship as <Position> at <Company1>
+    \end{itemize}
+    %%-- Motivation --%%
+    \iconpsection{\faClipboard}{Motivation}
+    \lipsum[1]
+
+    %%-- Research Interests --%%
+    \iconpsection{\faBook}{Research Interests}
+    \textbf{Seed Papers (Same for all Group Members):}
+    \seedpapers{}
+\end{document}
