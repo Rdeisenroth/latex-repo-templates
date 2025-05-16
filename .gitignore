@@ -1,0 +1,5 @@
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.default.json
+!.vscode/*.code-snippets
+.VSCodeCounter/
