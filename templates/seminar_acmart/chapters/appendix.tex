@@ -1,0 +1,60 @@
+\documentclass[../paper.tex]{subfiles}
+
+% Get Labels from the Main Document using the xr-hyper Package
+\externaldocument[ext:]{\subfix{thesis}}
+\graphicspath{{\subfix{pictures}}{\subfix{pictures/tex}}}
+
+\begin{document}
+    \appendix
+    \section{Appendix}\label{ch:appendix}
+    \subsection{Implementation Details}
+    \begin{figure}[H]%
+        \centering%
+        \includegraphics[width=\columnwidth-2em]{example-image-a}%
+        \caption{Database Schema of the Hub}%
+        \label{fig:hub-uml}%
+    \end{figure}
+    \begin{figure}[H]%
+        \centering%
+        \includegraphics[width=\columnwidth,height=\textheight-1cm,keepaspectratio]{example-image-b}%
+        \caption{Database Schema of the Operator}%
+        \label{fig:operator-uml}%
+    \end{figure}
+    \begin{figure}[ht!]
+        \centering
+        \begin{verbatim}
+            GET /jobs
+            POST /jobs
+            GET /jobs/:id
+            DELETE /jobs/:id
+            POST /jobs/claim
+            POST /jobs/uploadResult
+        \end{verbatim}
+        \begin{verbatim}
+            GET /runners
+            POST /runners/updateStatus
+        \end{verbatim}
+        \caption{API Routes of the Operator}
+        \label{fig:operator-api}
+    \end{figure}
+    \subsection{Frontend Screenshots}
+    % % dashboard
+    \begin{figure}[H]%
+        \begin{subfigure}[t]{.5\columnwidth}
+            \centering%
+            \includegraphics[width=\columnwidth-1em]{example-image-16x9}%
+            \caption{Light Mode}%
+            \label{fig:hub-dashboard-light}%
+        \end{subfigure}%
+        \begin{subfigure}[t]{.5\columnwidth}
+            \centering%
+            \includegraphics[width=\columnwidth-1em]{example-image-16x9}%
+            \caption{Dark Mode}%
+            \label{fig:hub-dashboard-dark}%
+        \end{subfigure}%
+        \caption{Hub Dashboard Screenshots}%
+        \label{fig:hub-dashboard}%
+    \end{figure}
+
+    % TODO: replace with actual appendix content
+\end{document}
