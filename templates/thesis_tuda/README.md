@@ -3,7 +3,7 @@
 This repository contains my Bachelor Theis Template. It is primarily thought to be used with git and Vscode, but should work with sharelatex as well (though you have to import the dependencies manually).  
 Parts of this template are excerpts from my Bachelor Thesis, so you might find some references to it. Please do not copy the provided fillter texts 1:1, as you might get into trouble with plagiarism, but you likely already know that.  
 
-Compared to the [thesis template by Fabian Damken](https://github.com/fdamken/thesis-template/tree/main), this template comes prepared with:
+Inspired by the excellent [thesis template by Fabian Damken](https://github.com/fdamken/thesis-template/tree/main), this template boasts several improvements:
 - a Devcontainer for Vscode with linting and spellchecking already set up
 - pre-commit hooks to ensure a consistent code style
 - actions to build and check for PDF/A compliance
