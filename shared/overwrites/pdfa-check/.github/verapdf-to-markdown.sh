@@ -13,12 +13,12 @@ get_markdown_from_jsonresult() {
     local json_file=$1
     local f_name=$(jq -r '.report.jobs[].itemDetails.name' $json_file)
     local f_size=$(jq -r '.report.jobs[].itemDetails.size' $json_file)
-    local f_passed_rules=$(jq -r '.report.jobs[].validationResult.details.passedRules' $json_file)
-    local f_failed_rules=$(jq -r '.report.jobs[].validationResult.details.failedRules' $json_file)
-    local f_passed_checks=$(jq -r '.report.jobs[].validationResult.details.passedChecks' $json_file)
-    local f_failed_checks=$(jq -r '.report.jobs[].validationResult.details.failedChecks' $json_file)
-    local f_statement=$(jq -r '.report.jobs[].validationResult.statement' $json_file)
-    local f_compliant=$(jq -r '.report.jobs[].validationResult.compliant' $json_file)
+    local f_passed_rules=$(jq -r '.report.jobs[].validationResult[0].details.passedRules' $json_file)
+    local f_failed_rules=$(jq -r '.report.jobs[].validationResult[0].details.failedRules' $json_file)
+    local f_passed_checks=$(jq -r '.report.jobs[].validationResult[0].details.passedChecks' $json_file)
+    local f_failed_checks=$(jq -r '.report.jobs[].validationResult[0].details.failedChecks' $json_file)
+    local f_statement=$(jq -r '.report.jobs[].validationResult[0].statement' $json_file)
+    local f_compliant=$(jq -r '.report.jobs[].validationResult[0].compliant' $json_file)
     echo "## $f_name"
     echo "$f_statement"
     echo "| Name | Value |"
