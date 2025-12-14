@@ -91,7 +91,9 @@ jobs:
       - name: Install veraPDF
         run: |
           wget https://software.verapdf.org/rel/verapdf-installer.zip
-          wget -O auto-install.xml https://aur.archlinux.org/cgit/aur.git/plain/auto-install.xml?h=verapdf
+          git clone https://aur.archlinux.org/verapdf.git aur-verapdf
+          cp aur-verapdf/auto-install.xml auto-install.xml
+          rm -rf aur-verapdf
           unzip verapdf-installer.zip
           cd verapdf-greenfield*/
           ./verapdf-install ../auto-install.xml
