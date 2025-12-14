@@ -83,7 +83,7 @@ jobs:
           name: PDF
       # 3. Install Java
       - name: Install Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '21'
